@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <script src="./vendor/angular.js"></script>
+    <script src="./app.js"></script>
+    <script src="./controllers/catsController.js"></script>
+</head>
+
+<body ng-app="catClicker">
+
+    <div ng-controller="catsController as cc">
+        <div ng-repeat="cat in cc.cats track by $index">
+            <p> {{cat.name}} </p>
+            <img ng-src="{{cat.imgSrc}}" ng-click="cc.incrementCount(cat)" />
+            <P>You clicked {{cat.clickCount}} time(s)</p>
+            <hr ng-if="!$last">
+        </div>
+    </div>
+
+</body>
+
+</html>

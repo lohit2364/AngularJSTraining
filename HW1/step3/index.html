@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="./vendor/angular.js"></script>
+    <script src="./app.js"></script>
+    <script src="./controllers/catsController.js"></script>
+</head>
+
+<body ng-app="catClicker" class="container-fluid">
+
+    <div ng-controller="catsController as cc">
+        <div class="col-sm-6">
+            <div ng-repeat="cat in cc.cats track by $index">
+                <p> {{cat.name}} </p>
+                <img ng-src="{{cat.imgSrc}}" ng-click="cc.selectCat(cat)" />
+                <hr ng-if="!$last">
+            </div>
+        </div>
+        <div class="col-sm-6" ng-if="cc.selectedCat">
+            <p> {{cc.selectedCat.name}} </p>
+            <img ng-src="{{cc.selectedCat.imgSrc}}" ng-click="cc.incrementCount(cc.selectedCat)" />
+            <P>You clicked {{cc.selectedCat.clickCount}} time(s)</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
