@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./vendor/angular.js"></script>
+    <script src="./app.js"></script>
+    <script src="./controllers/catsController.js"></script>
+</head>
+
+<body ng-app="catClicker" class="container-fluid">
+    <h3> Cat Clicker </h3>
+    <div ng-controller="catsController as cc" ng-cloak>
+        <div class="col-sm-6">
+            <ul class="list-group cats-list">
+                <li ng-repeat="cat in cc.cats track by $index" 
+                    ng-click="cc.selectCat(cat)"
+                    class="list-group-item"
+                    ng-class="{'active': cat.id === cc.selectedCat.id}">
+                    {{cat.name}}
+                    <span class="badge" ng-show="cat.isVisited">&#10004;</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-3" ng-if="cc.selectedCat">
+            <p>
+                <strong>Name: </strong> {{cc.selectedCat.name}}
+            </p>
+            <img class="cat-img" ng-src="{{cc.selectedCat.imgSrc}}" />
+            <div class="form-group vote-counter">
+                <label for="votes">Votes:</label>
+                <input type="number" class="form-control" ng-model="cc.selectedCat.voteCount" id="votes" placeholder="votes" />
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
