@@ -1,4 +1,4 @@
-angular.module('catClicker', ['ui.router']);
+angular.module('catClicker', ['ui.router'/*, 'ngMockE2E'*/]);
 
 angular.module('catClicker')
     .config(function ($urlRouterProvider, $stateProvider) {

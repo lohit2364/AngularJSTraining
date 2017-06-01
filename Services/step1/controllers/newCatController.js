@@ -1,15 +1,16 @@
 (function () {
 
-    newCatController.$inject = ['utilityService'];
+    newCatController.$inject = ['utilityService', 'catService', '$state'];
 
-    function newCatController(utilityService) {
+    function newCatController(utilityService, catService, $state) {
         var vm = this;
-        vm.imgSrc = "";
+        vm.url = "";
 
         vm.saveNewCat = saveNewCat;
 
         function saveNewCat(cat) {
-            console.log(cat);
+            catService.addNewCat(cat);
+            $state.go('home');
         }
 
     }
