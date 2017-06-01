@@ -1,5 +1,5 @@
 <div ng-controller="catsController as cc" ng-cloak>
-    <a class="btn btn-primary pull-right" ui-sref="newCat">Add New Cat</a>
+    <a class="btn btn-primary pull-right" ui-sref="catDetails({id: 'new'})">Add New Cat</a>
     <div class="col-lg-6">
         <div class="form-inline">
             <div class="form-group">
@@ -20,6 +20,7 @@
             <li ng-repeat="cat in cc.cats | orderBy:cc.selectedOrder track by $index" ng-click="cc.selectCat(cat)" class="list-group-item"
                 ng-class="{'active': cat.id === cc.selectedCat.id}">
                 {{cat.name}}
+                <span class="badge" ui-sref="catDetails({id: cat.id})">&#x270E;</span>
                 <span class="badge" ng-show="cat.isVisited">&#10004;</span>
             </li>
         </ul>

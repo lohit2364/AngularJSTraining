@@ -58,7 +58,9 @@
 
         return {
             getAllCats: getAllCats,
-            addNewCat: addNewCat
+            getCatDetails: getCatDetails,
+            addCatDetails: addCatDetails,
+            updateCatDetails: updateCatDetails
         };
 
         function getAllCats() {
@@ -69,13 +71,24 @@
             // });
         }
 
-        function addNewCat(newCat) {
-            angular.extend(newCat, {
+        function getCatDetails(catId) {
+            var cat = allCats.find(function (cat) {return cat.id === Number(catId)});
+            return $q.resolve(cat);
+        }
+
+        function addCatDetails(catDetails) {
+            angular.extend(catDetails, {
                 id: allCats.length + 1,
                 isVisited: false,
                 voteCount: 0
             });
-            allCats.push(newCat);
+            allCats.push(catDetails);
+            return $q.resolve();
+        }
+
+        function updateCatDetails(catToUpdate) {
+            var index = allCats.findIndex(function (cat) { return cat.id === catToUpdate.id});
+            allCats[index] = catToUpdate;
             return $q.resolve();
         }
     }

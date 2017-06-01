@@ -9,8 +9,8 @@ angular.module('catClicker')
             .state("home", {
                 url: "/",
                 templateUrl: "./templates/catsList.tpl.html"
-            }).state("newCat", {
-                url: "/newCat",
-                templateUrl: "./templates/newCat.tpl.html"
+            }).state("catDetails", {
+                url: "/catDetails/:id",
+                templateUrl: "./templates/catDetails.tpl.html"
             });
     });
