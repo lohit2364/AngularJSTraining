@@ -7,24 +7,13 @@
                     <input type="text" class="form-control" id="name" name="name" ng-model="nc.cat.name" required>
                     <p class="text-danger" ng-show="catDetailsForm.name.$touched && catDetailsForm.name.$error.required">Name is mandatory</p>
                 </div>
-                <div class="form-group">
-                    <label for="pwd">Cat URL:</label>
-                    <input type="text" class="form-control" id="url" name="url" ng-model="nc.cat.url" required validate-cat-url ng-model-options="{ allowInvalid: true, updateOn: 'blur' }"
-                    />
-                    <div ng-show="catDetailsForm.url.$touched">
-                        <p class="text-danger" ng-show="catDetailsForm.url.$error.required">URL is mandatory</p>
-                        <p class="text-danger" ng-show="catDetailsForm.url.$error.invalidUrl">Please enter a valid URL</p>
-                    </div>
-                </div>
-                <div>
-                    <img ng-src="{{nc.cat.url}}" ng-if="catDetailsForm.url.$valid" alt="Cat Pic Here" />
-                </div>
+                <image-preview url="nc.cat.url"></image-preview>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <button class="btn btn-danger" ui-sref="home">Cancel</button>
-                <button class="btn btn-success" ng-disabled="catDetailsForm.$invalid" ng-click="nc.saveCatDetails(nc.cat)">Save</button>
+                <button class="btn btn-success" ng-disabled="catDetailsForm.$invalid" ng-click="nc.saveCatDetails(nc.cat)" allow-enter >Save</button>
             </div>
         </div>
     </form>

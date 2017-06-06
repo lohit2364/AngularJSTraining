@@ -1,4 +1,4 @@
-angular.module('catClicker', ['ui.router', 'ngMockE2E']);
+angular.module('catClicker', ['ui.router', 'ngMockE2E', 'ngCookies']);
 
 angular.module('catClicker')
     .config(function ($urlRouterProvider, $stateProvider) {
@@ -15,5 +15,5 @@ angular.module('catClicker')
             });
     })
     .run(function ($httpBackend) {
-        $httpBackend.whenGET(new RegExp('./templates/.*')).passThrough();  
+        $httpBackend.whenGET(new RegExp('.html')).passThrough();  
     });
