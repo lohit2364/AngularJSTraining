@@ -14,10 +14,7 @@
         vm.selectedCat = null;
         vm.selectedOrder = 'name';
 
-        catService.getAllCats()
-            .then(function (cats) {
-                vm.cats = cats;
-            })
+        getAllCats();
 
         vm.selectCat = function (cat) {
             cat.isVisited = true;
@@ -28,6 +25,19 @@
             var model = vm.searchInput;
             vm.cats = $filter('filter')(allCats, { name: model });
         };
+
+        vm.deleteCat = function ($event, catId) {
+            $event.stopPropagation();
+            catService.deleteCat(catId)
+                .then(getAllCats)
+        }
+
+        function getAllCats() {
+            catService.getAllCats()
+                .then(function (cats) {
+                    vm.cats = cats;
+                });
+        }
     }
 
     angular.module('catClicker')

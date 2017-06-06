@@ -16,7 +16,6 @@
         }
 
         function saveCatDetails(cat) {
-            debugger;
             if (isEdit) {
                 catService.updateCatDetails(cat);
             } else {
