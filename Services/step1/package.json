@@ -1,0 +1,24 @@
+{
+  "name": "step1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@uirouter/angularjs": "^1.0.3",
+    "angular": "^1.6.8",
+    "angular-cookies": "^1.6.8",
+    "angular-mocks": "^1.6.8",
+    "bower-webpack-plugin": "^0.1.9",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "extract-text-webpack-plugin": "^3.0.2"
+  }
+}

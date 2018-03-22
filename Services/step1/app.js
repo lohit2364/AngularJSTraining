@@ -1,19 +1,26 @@
 angular.module('catClicker', ['ui.router', 'ngMockE2E', 'ngCookies']);
 
 angular.module('catClicker')
-    .config(function ($urlRouterProvider, $stateProvider) {
+    .config(appConfig)
+    .run(appRun);
 
-        $urlRouterProvider.otherwise('/');
+appConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
 
-        $stateProvider
-            .state("home", {
-                url: "/",
-                templateUrl: "./templates/catsList.tpl.html"
-            }).state("catDetails", {
-                url: "/catDetails/:id",
-                templateUrl: "./templates/catDetails.tpl.html"
-            });
-    })
-    .run(function ($httpBackend) {
-        $httpBackend.whenGET(new RegExp('.html')).passThrough();  
-    });
+function appConfig($urlRouterProvider, $stateProvider) {
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state("home", {
+            url: "/",
+            templateUrl: "./templates/catsList.tpl.html"
+        }).state("catDetails", {
+            url: "/catDetails/:id",
+            templateUrl: "./templates/catDetails.tpl.html"
+        });
+}
+
+appRun.$inject = ['$httpBackend'];
+function appRun($httpBackend) {
+    $httpBackend.whenGET(new RegExp('.html')).passThrough();  
+}

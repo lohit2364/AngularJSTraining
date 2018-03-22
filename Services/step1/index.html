@@ -4,33 +4,23 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="js/vendor.bundle.js"></script>
+    <script src="js/app.bundle.js"></script>
 
-    <script src="./vendor/angular.js"></script>
-    <script src="./vendor/angular-ui-router.js"></script>
-    <script src="./vendor/angular-mocks.js"></script>
-    <script src="./vendor/angular-cookies.js"></script>
-
-    <script src="./app.js"></script>
-    <script src="./controllers/catsController.js"></script>
-    <script src="./controllers/catDetailsController.js"></script>
-    <script src="./services/utilityService.js"></script>
-    <script src="./mocks/mockCatApi.js"></script>
-    <script src="./services/catsService.js"></script>
-    <script src="./directives/validateCatUrl.directive.js"></script>
-    <script src="./directives/validateUpvote.directive.js"></script>
-    <script src="./directives/ccFocus.directive.js"></script>
-    <script src="./directives/allowEnter.directive.js"></script>
-
-    <script src="./directives/imagePreview/imagePreview.directive.js"></script>
-    <script src="./directives/imagePreview/imagePreview.controller.js"></script>
-
-    <script src="./directives/voteSpinner/voteSpinner.directive.js"></script>
-    <script src="./directives/voteSpinner/voteSpinner.controller.js"></script>
-    
 </head>
 
 <body ng-app="catClicker" class="container-fluid">
-    <h3> Cat Clicker </h3>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="home">Cat Clicker</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="home">Home</a></li>
+                <li><a ui-sref="about">about</a></li>
+            </ul>
+        </div>
+    </nav>
     <div ui-view></div>
 
 </body>
