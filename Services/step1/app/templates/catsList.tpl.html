@@ -1,5 +1,4 @@
 <div ng-controller="catsController as cc" ng-cloak>
-    <a class="btn btn-primary pull-right" ui-sref="catDetails({id: 'new'})">Add New Cat</a>
     <div class="col-lg-6">
         <div class="form-inline">
             <div class="form-group">
@@ -7,6 +6,7 @@
                 <input type="text" class="form-control" id="searchInput" placeholder="Search by Name" ng-model="cc.searchInput">
                 <button class="btn btn-primary" ng-click="cc.searchCats()"> Search </button>
             </div>
+            <a class="btn btn-primary pull-right" ui-sref="catDetails({id: 'new'})">Add New Cat</a>
         </div>
         <div class="form-group">
             <label for="orderSelect">Order By:</label>

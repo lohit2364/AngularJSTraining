@@ -7,7 +7,7 @@
             scope: {
                 url: '='
             },
-            templateUrl: './directives/imagePreview/imagePreview.tpl.html',
+            templateUrl: './app/directives/imagePreview/imagePreview.tpl.html',
             controller: 'imagePreviewController',
             controllerAs: 'ip',
             bindToController: true

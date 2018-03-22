@@ -7,7 +7,7 @@
             scope: {
                 cat: '='
             },
-            templateUrl: './directives/voteSpinner/voteSpinner.tpl.html',
+            templateUrl: './app/directives/voteSpinner/voteSpinner.tpl.html',
             controller: 'voteSpinnerController',
             controllerAs: 'vs',
             bindToController: true
